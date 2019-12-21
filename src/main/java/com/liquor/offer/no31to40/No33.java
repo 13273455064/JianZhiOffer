@@ -1,4 +1,4 @@
-package com.liquorcloud.liquor.offer.no31to40;
+package com.liquor.offer.no31to40;
 
 /**
  * 求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？
@@ -10,7 +10,8 @@ package com.liquorcloud.liquor.offer.no31to40;
  * 正确的思路应该是把n看做三个部分，分别为   当前位的数字cor，高位数字high，低位数字low，当前位分别为个十百千万
  * 然后分析当前位的数字，只有三种情况，要么cor==0，要么cor==1,要么cor>1
  * 当cor==0时：1的次数仅受高位影响，count = high*当前位数
- * 当cor==1时，不只是受高位的影响，还要受低位的影响，count =
+ * 当cor==1时，不只是受高位的影响，还要受低位的影响，count =  (high * 当前位数) + Low + 1
+ * 当cor>1时，只受高位的影响，count = (high +1) * 当前位数
  *
  * 设N = abcde ,其中abcde分别为十进制中各位上的数字。
  * 如果要计算百位上1出现的次数，它要受到3方面的影响：百位上的数字，百位以下（低位）的数字，百位以上（高位）的数字。
@@ -28,12 +29,12 @@ public class No33 {
 
     public int NumberOf1Between1AndN_Solution(int n) {
             int count = 0;
-            //从个位开始
+            //从个位开始,i表示位数
             for (int i=1;i<=n;i*=10){
-                //高位数字通过对当前位的高一位取模获得
-                int high = n % (i * 10);
-                //低位数字通过直接取模获得
-                int low = n % i;
+                //高位数字通过对当前位的高一位相除获得
+                int high = n / (i * 10);
+                //低位数字通过直接对当前位数取模获得
+                int low = (n % i);
                 //当前位数字相当于求高位的逆运算
                 int cor = (n / i) % 10;
 

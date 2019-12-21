@@ -1,4 +1,4 @@
-package com.liquorcloud.liquor.offer.no31to40;
+package com.liquor.offer.no31to40;
 
 /**
  * HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。

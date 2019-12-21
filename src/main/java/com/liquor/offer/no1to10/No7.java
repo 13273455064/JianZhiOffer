@@ -1,4 +1,4 @@
-package com.liquorcloud.liquor.offer.no1to10;
+package com.liquor.offer.no1to10;
 
 public class No7 {
     /**

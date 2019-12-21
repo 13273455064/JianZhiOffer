@@ -1,4 +1,4 @@
-package com.liquorcloud.liquor.offer.no31to40;
+package com.liquor.offer.no31to40;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class No31 {
 
     public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
-        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Integer> list = new ArrayList<Integer>();
         if (input.length<k || k<=0){
             return list;
         }

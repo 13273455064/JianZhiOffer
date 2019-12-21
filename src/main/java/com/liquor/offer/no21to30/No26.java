@@ -1,4 +1,4 @@
-package com.liquorcloud.liquor.offer.no21to30;
+package com.liquor.offer.no21to30;
 
 import java.util.ArrayList;
 
