@@ -15,25 +15,25 @@ package com.liquor.offer.no31to40;
 public class No36 {
 
     public static int FirstNotRepeatingChar(String str) {
-        int result = -1;
         if (str==null || str.length()==0){return -1;}
         if (str.length() == 1){return 0;}
         //这里用int[]代替List,需要考虑数组的大小
-        int[] arr = new int[256];
+        //这里的58是因为在ASCll码中，A-Z对应的ASCII码为65-90，a-z对应的ASCII码值为97-122
+        //题目说了只有字母，那数组最小是不是  26+26=52个就可以了呢，还应该注意到大小写字母之间不是相连的，
+        //没有办法，只能把数组的大小定为  26+26+6 = 58,
+        int[] arr = new int[58];
 
         for (int i = 0;i<str.length();i++){
-            int index = str.charAt(i);
+            int index = str.charAt(i)-65;
             arr[index]++;
         }
         for (int i = 0;i<str.length();i++){
-            int index = str.charAt(i);
+            int index = str.charAt(i)-65;
             if (arr[index]==1){
-                result = i;
-                return result;
+                return i;
             }
         }
-
-        return result;
+        return -1;
     }
 
     public static void main(String[] args) {
