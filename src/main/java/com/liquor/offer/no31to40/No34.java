@@ -1,7 +1,6 @@
 package com.liquor.offer.no31to40;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -22,9 +21,9 @@ public class No34 {
         for (int n:numbers){
             list.add(String.valueOf(n));
         }
-        Collections.sort(list, (o1, o2) -> {
-            String a = o1+o2;
-            String b = o2+o1;
+        list.sort((o1, o2) -> {
+            String a = o1 + o2;
+            String b = o2 + o1;
             return a.compareTo(b);
         });
         StringBuilder buffer = new StringBuilder();
