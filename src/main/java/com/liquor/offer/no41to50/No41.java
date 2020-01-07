@@ -1,8 +1,5 @@
 package com.liquor.offer.no41to50;
 
-
-import com.liquor.offer.no31to40.No40;
-
 /**
  * 输入一棵二叉树，判断该二叉树是否是平衡二叉树。
  *
