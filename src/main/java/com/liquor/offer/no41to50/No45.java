@@ -10,7 +10,7 @@ package com.liquor.offer.no41to50;
  *
  * 不过需要注意的是，substring这个方法，从beginIndex开始取，到endIndex结束，从0开始数，其中不包括endIndex位置的字符！
  *
- *
+ * @author zzc on 2020.1.11
  */
 public class No45 {
     public static String LeftRotateString(String str,int n) {
