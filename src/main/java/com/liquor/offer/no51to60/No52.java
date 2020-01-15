@@ -1,6 +1,9 @@
-package com.liquor.offer.no1to10;
+package com.liquor.offer.no51to60;
 
-public class No1 {
+/**
+ * @author T480
+ */
+public class No52 {
     /**
      * 在一个长度为n的数组里的所有数字都在0到n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，
      * 也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。
