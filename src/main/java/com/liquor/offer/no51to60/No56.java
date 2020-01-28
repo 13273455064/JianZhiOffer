@@ -22,6 +22,7 @@ public class No56 {
      * 使用LinkedHashMap的解法，借用了LinkedHashMap有序的特性
      */
     Map<Character,Integer> map = new LinkedHashMap<>(256);
+
     //Insert one char from stringstream
     public void Insert(char ch)
     {
@@ -42,5 +43,43 @@ public class No56 {
         return '#';
     }
 
+
+    /**
+     * 使用数组的解法，更加节省空间，面试时可以当做大招放出来
+     * 用字符的Acill码作为数组的下标，因为所有的字符的Acill码在0-256之间，所以数组的大小是256
+     */
+    int[] arr = new int[256];
+    //index表示字符流中字符的顺序索引
+    int index = 0;
+
+    public No56(){
+        //实例化类时把数组初始值干成-1
+        for (int i=0;i<256;i++){
+            arr[i] = -1;
+        }
+    }
+    public void Insert2(char ch)
+    {
+       if (arr[ch]==-1){
+           arr[ch] = index;
+       }else if (arr[ch]>=0){
+           //已经存在的字符，干成-2，这样后面找第一个正数就好了
+           arr[ch] = -2;
+       }
+       index++;
+    }
+
+    public char FirstAppearingOnce2()
+    {
+        char ch = '#';
+        int minIndex = Integer.MAX_VALUE;
+        for (int i=0;i<256;i++){
+            if (arr[i]>=0 && arr[i]<minIndex){
+                ch = (char) i;
+                minIndex = arr[i];
+            }
+        }
+        return ch;
+    }
 
 }
