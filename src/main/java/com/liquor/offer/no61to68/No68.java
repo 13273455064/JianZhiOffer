@@ -34,7 +34,11 @@ public class No68 {
         if (target == 3)
             return 2;
         int[] result = new int[target+1];
-        //没有说必须要剪，当长度为2/3时，可以不剪，这样乘积最大
+        /**
+         * 当length<=3的时候，我们直接返回了结果。如果整个绳子的长度为3，我们必须把绳子剪开，因为题目要求m>1，其中一段为2，另一段为1，这样结果就是2。
+         * 当length>=4的时候，我们可以把绳子剪成两段，其中一段为3另一段为１，这样长度为3的那一段的最大值就是3而不是2，因为这一段我们不需要再剪了。
+         * 当然长度为4的最大值是2和2的组合，我们已经存储了2的长度。
+         */
         result[0] = 0;
         result[1] = 1;
         result[2] = 2;
@@ -50,5 +54,25 @@ public class No68 {
             result[i] = max;
         }
         return result[target];
+    }
+
+    /**
+     * 贪心算法
+     */
+    public int cutRope2(int target) {
+        if (target <= 1)
+            return 0;
+        if (target == 2)
+            return 1;
+        if (target == 3)
+            return 2;
+        //尽可能多的取3
+        int count3 = target /3;
+        //如果余1，需要退一个
+        if (target % 3 ==1){
+            count3--;
+        }
+        int count2 = (target - count3*3)/2;
+        return (int) (Math.pow(3, count3) * Math.pow(2, count2));
     }
 }
