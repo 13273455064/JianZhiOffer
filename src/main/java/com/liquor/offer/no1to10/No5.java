@@ -1,60 +1,85 @@
 package com.liquor.offer.no1to10;
 
-import java.util.Stack;
-
 public class No5 {
     /**
-     * 输入一个链表的头结点，从尾到头反过来打印出每个结点的值
+     * 在一个长度为n+1的数组里的所有数字都在1到n的范围内，所以数组中至少有一个数字是重复的。
+     * 请找出数组中任意一个重复的数字，但不能修改输入的数组。
+     * 例如，如果输入长度为8的数组{2, 3, 5, 4, 3, 2, 6, 7}，那么对应的输出是重复的数字2或者3。
      */
     public static void main(String[] args) {
-        ListNode ln1 = new ListNode(1);
-        ListNode ln2 = new ListNode(2);
-        ListNode ln3 = new ListNode(3);
-        ListNode ln4 = new ListNode(4);
-        ListNode ln5 = new ListNode(5);
-        ListNode ln6 = new ListNode(6);
-        ListNode ln7 = new ListNode(7);
-        ListNode ln8 = new ListNode(8);
-        ln1.next = ln2;
-        ln2.next = ln3;
-        ln3.next = ln4;
-        ln4.next = ln5;
-        ln5.next = ln6;
-        ln6.next = ln7;
-        ln7.next = ln8;
-        ln8.next = null;
-
-        printListReversinglyByStack(ln1);
-        String s;
+        int[] arr = {1,5,3,4,2,6,2,3};
+        System.out.println("找到了"+find2(arr));
     }
 
-    public static void printListReversinglyByStack(ListNode listNode){
-        if(listNode == null){ //如果为空，直接返回
-            return;
+    /**
+     * 简单粗暴的方法，新建一个辅助数组，然后一个一个复制到辅助数组索引位置
+     */
+    private static int find(int[] arr){
+        //省略了输入参数检查
+        int[] arr2 = new int[arr.length];
+        for (int value : arr) {
+            if (arr2[value] == value) {
+                return value;
+            }
+            arr2[value] = value;
         }
-        Stack<Integer> stack = new Stack<Integer>(); //借助于栈
-        while(listNode!=null){
-            stack.push(listNode.val); //将数据放入栈中
-            listNode = listNode.next; //指针域指向下一个指针
-        }
-        while(!stack.isEmpty()){
-            int a = stack.pop();
-            System.out.print(a + " "); //借助于栈输出
-        }
+        return -1;
     }
 
-
-    //自定义的链表内部类
-    static class ListNode{
-        int val;
-        //指向下一个节点的指针
-        ListNode next = null;
-
-        ListNode(int val){
-            this.val = val;
+    /**
+     * 减小空间复杂度的算法，
+     * 因为n个数字都在1-n之间，至少有一个数字重复
+     * 只需要从中间分割开，统计两端数字的个数，类似于二分查找？
+     */
+    private static int find2(int[] arr){
+        //空数组
+        if(arr.length==0){
+            return -1;
+        }
+        //检查数字范围
+        for (int value : arr) {
+            if (value < 0 || value > arr.length - 1) {
+                return -1;
+            }
         }
 
-
+        int low = 1;
+        int high = arr.length-1;
+        while (low<=high) {
+            //先算出来中间的索引值
+            int m = (low + high) / 2;
+            //统计左边的数字个数
+            int count = getCount(arr,low,m);
+            //低位和高位重合，说明要找到数了，
+            if(low==high){
+                if(count>1){
+                    return low;
+                }else{
+                    break;
+                }
+            }
+            if(count > m-low+1){
+                high = m;
+            }else{
+                low = m+1;
+            }
+        }
+        return -1;
     }
 
+    /**
+     * 获得从low到high之间的数字个数
+     */
+    private static int getCount(int[] arr, int low, int high) {
+        if(arr.length==0){
+            return 0;
+        }
+        int count = 0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]>=low && arr[i]<=high){
+                count++;
+            }
+        }
+        return count;
+    }
 }
