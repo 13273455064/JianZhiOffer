@@ -70,7 +70,7 @@ public class No4 {
             return null;
         }
         TreeNode node = new TreeNode(pre[pstart]);
-        for (int i = istart; i < iend; i++) {
+        for (int i = istart; i <= iend; i++) {
             if (in[i] == pre[pstart]){
                 //左子树的数量，就是i减去中序遍历起始位置坐标
                 int leftTreeSize = i-istart;

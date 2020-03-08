@@ -1,7 +1,7 @@
 package com.liquor.offer.no1to10;
 
 
-public class No10 {
+public class No6 {
     /**
      * 题目：把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。
      *      * // 输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组
@@ -13,6 +13,30 @@ public class No10 {
         int length = arr.length;
         System.out.println(findMin(arr, length));
 
+    }
+
+    /**
+     * 实际上就是二分查找
+     */
+    public int minNumberInRotateArray(int [] arr) {
+        int length = arr.length;
+        if (length==0){
+            return 0;
+        }
+
+        int p1 = 0;
+        int p2 = length-1;
+        while (p1<p2){
+            int m = (p1+p2)/2;
+            if (arr[m]>arr[p1]){
+                p1 = m;
+            }
+            if (arr[m]<arr[p2]){
+                p2 = m;
+            }
+
+        }
+        return arr[p1];
     }
 
     private static int findMin(int[] arr, int length){
