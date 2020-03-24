@@ -31,11 +31,11 @@ public class No3 {
 
     public static ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
 
-        ArrayList<Integer> result = new ArrayList<>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
         if (listNode==null){
             return result;
         }
-        Stack<ListNode> stack = new Stack<>();
+        Stack<ListNode> stack = new Stack<ListNode>();
         while (listNode!=null){
             stack.push(listNode);
             listNode = listNode.next;

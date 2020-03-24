@@ -15,8 +15,8 @@ public class No5 {
      * 简而言之，两个先进后出连到一起，就成了先进先出
      *
      */
-    Stack<Integer> stack1 = new Stack<>();
-    Stack<Integer> stack2 = new Stack<>();
+    Stack<Integer> stack1 = new Stack<Integer>();
+    Stack<Integer> stack2 = new Stack<Integer>();
 
     public void push(int node) {
         stack1.push(node);
