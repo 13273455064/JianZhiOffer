@@ -1,4 +1,4 @@
-package com.liquor.thread;
+package com.liquor.thread.api;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
