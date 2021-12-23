@@ -6,10 +6,12 @@ import java.util.Arrays;
 public class QuicklySort {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{2, 4, 3, 6,7,2,9,5,23,32,12,555,123,32,765};
+        int[] arr = new int[]{3, 5, 3, 2, 1};
         final int length = arr.length;
+        final long start = System.currentTimeMillis();
         sort(arr, 0, length - 1);
         System.out.println(Arrays.toString(arr));
+        System.out.println(System.currentTimeMillis() - start);
 
     }
 
