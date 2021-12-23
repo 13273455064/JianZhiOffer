@@ -2,10 +2,11 @@ package com.liquor.sort;
 
 import java.util.Arrays;
 
+//https://zhuanlan.zhihu.com/p/35946897
 public class QuicklySort {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{2, 4, 3, 6};
+        int[] arr = new int[]{2, 4, 3, 6,7,2,9,5,23,32,12,555,123,32,765};
         final int length = arr.length;
         sort(arr, 0, length - 1);
         System.out.println(Arrays.toString(arr));
@@ -20,7 +21,7 @@ public class QuicklySort {
 
             while (left < right) {
 
-                while (left < right && arr[right] > tmp) {
+                while (left < right && arr[right] >= tmp) {
                     right--;
                 }
 
@@ -33,11 +34,15 @@ public class QuicklySort {
                 while (left < right && arr[left] < tmp) {
                     left++;
                 }
-                arr[right] = arr[left];
+
+                if (left < right) {
+                    arr[right] = arr[left];
+                    right--;
+                }
 
             }
             arr[left] = tmp;
-            sort(arr, start, left);
+            sort(arr, start, left - 1);
             sort(arr, left + 1, end);
         }
     }
