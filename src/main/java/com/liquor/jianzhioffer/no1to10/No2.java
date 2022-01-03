@@ -22,7 +22,7 @@ public class No2 {
         int oldlength = str.length();
         for (int i = 0; i < oldlength; i++) {
             char c = str.charAt(i);
-            if (c ==' '){
+            if (c == ' ') {
                 str.append(" ");
                 str.append(" ");
             }
@@ -32,18 +32,18 @@ public class No2 {
         int newLength = str.length();
 
         //原字符串上的指针
-        int p1 = oldlength-1;
+        int p1 = oldlength - 1;
         //新字符串的指针
-        int p2 = newLength-1;
+        int p2 = newLength - 1;
         //从后面向前遍历
-        while (p1>=0 && p2>p1){
+        while (p1 >= 0 && p2 > p1) {
             char a = str.charAt(p1--);
-            if (a ==' '){
-                str.setCharAt(p2--,'0');
-                str.setCharAt(p2--,'2');
-                str.setCharAt(p2--,'%');
-            }else {
-                str.setCharAt(p2--,a);
+            if (a == ' ') {
+                str.setCharAt(p2--, '0');
+                str.setCharAt(p2--, '2');
+                str.setCharAt(p2--, '%');
+            } else {
+                str.setCharAt(p2--, a);
             }
         }
         return str.toString();
