@@ -69,6 +69,7 @@ public class No24 {
         node20.right = node7;
         final List<List<Integer>> levelOrder = levelOrder(node3);
         System.out.println(levelOrder);
+        System.out.println(levelOrder2(node3));
     }
 
     /**
@@ -90,6 +91,45 @@ public class No24 {
                 tmp.add(node.val);
                 if (node.left != null) queue.add(node.left);
                 if (node.right != null) queue.add(node.right);
+            }
+            res.add(tmp);
+        }
+        return res;
+    }
+
+
+    /**
+     * BFS 分层打印二叉树，但是每一层要打印在一起,并且奇数行从左往右偶数行从右往左
+     *
+     * @param root
+     * @return
+     */
+    public static List<List<Integer>> levelOrder2(TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>(new ArrayList<>());
+        }
+
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        List<List<Integer>> res = new ArrayList<>();
+
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            LinkedList<Integer> tmp = new LinkedList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if (res.size() % 2 == 0) {
+                    tmp.addLast(node.val);
+                } else {
+                    tmp.addFirst(node.val);
+                }
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
             }
             res.add(tmp);
         }
