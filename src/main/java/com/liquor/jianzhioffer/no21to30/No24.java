@@ -58,13 +58,10 @@ public class No24 {
         final TreeNode node20 = new TreeNode(20);
         final TreeNode node15 = new TreeNode(15);
         final TreeNode node7 = new TreeNode(7);
-        final TreeNode node2 = new TreeNode(2);
-        final TreeNode node1 = new TreeNode(1);
+
 
         node3.left = node9;
         node3.right = node20;
-        node9.left = node1;
-        node9.right = node2;
         node20.left = node15;
         node20.right = node7;
         final List<List<Integer>> levelOrder = levelOrder(node3);
@@ -79,22 +76,30 @@ public class No24 {
      * @return
      */
     public static List<List<Integer>> levelOrder(TreeNode root) {
-        final ArrayList<ArrayList<Integer>> objects = new ArrayList<>(new ArrayList<>());
+        List<List<Integer>> result = new ArrayList<>();
+
         Queue<TreeNode> queue = new LinkedList<>();
-        List<List<Integer>> res = new ArrayList<>();
-        if (root != null) queue.add(root);
-        while (!queue.isEmpty()) {
-            List<Integer> tmp = new ArrayList<>();
-            final int size = queue.size();
-            for (int i = size; i > 0; i--) {
-                TreeNode node = queue.poll();
-                tmp.add(node.val);
-                if (node.left != null) queue.add(node.left);
-                if (node.right != null) queue.add(node.right);
-            }
-            res.add(tmp);
+        if (root != null) {
+            queue.offer(root);
         }
-        return res;
+
+        while (!queue.isEmpty()) {
+            List<Integer> list = new ArrayList<>();
+
+            final int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                list.add(node.val);
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
+            }
+            result.add(list);
+        }
+        return result;
     }
 
 
