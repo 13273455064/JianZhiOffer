@@ -18,6 +18,10 @@ public class MergeSort {
         System.out.println(Arrays.toString(arr));
     }
 
+    /**
+     * 拆分至区间长度为 1，n 个元素需要拆分 logN 次，
+     * 每一层的合并需要对 n 个元素操作，O(N)
+     */
     private static void mergeSort(int[] arr, int start, int end, int[] newArr) {
         if (start >= end) {
             return;
