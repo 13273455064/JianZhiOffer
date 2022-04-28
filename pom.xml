@@ -20,4 +20,12 @@
     <version>1.0</version>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>io.vavr</groupId>
+            <artifactId>vavr</artifactId>
+            <version>0.10.4</version>
+        </dependency>
+    </dependencies>
+
 </project>
