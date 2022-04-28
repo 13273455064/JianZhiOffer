@@ -4,7 +4,7 @@ object QuicklySort {
 
 
   def main(args: Array[String]): Unit = {
-    val arr = Array(2, 4, 3, 6, 7, 2, 9, 5, 23, 32, 12, 555, 123, 32, 765);
+    val arr = Array(2, 4, 3, 6, 7, 2, 9, 5, 23, 32, 12, 555, 123, 32, 765)
     val length = arr.length
     val start = System.currentTimeMillis();
     sort(arr, 0, length - 1)

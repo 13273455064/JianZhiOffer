@@ -1,5 +1,7 @@
 package com.loquor.jianzhioffer.no1to10
 
+import scala.collection.mutable
+
 /**
  * <p>
  *
@@ -17,7 +19,7 @@ object No2 {
   }
 
   def replace(s: String): String = {
-    val builder = new StringBuilder()
+    val builder = new mutable.StringBuilder()
     s.foreach(c => {
       if (c == ' '){
         builder.append('%').append('2').append('0')
