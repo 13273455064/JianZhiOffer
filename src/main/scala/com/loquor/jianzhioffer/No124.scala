@@ -2,6 +2,9 @@ package com.loquor.jianzhioffer
 
 import com.loquor.jianzhioffer.node.TreeNode
 
+/**
+ * 二叉树中和最大的路径
+ */
 object No124 {
 
 
