@@ -8,9 +8,9 @@ import com.loquor.jianzhioffer.node.TreeNode
 object No105 {
 
   /**
-   *    3
+   * 3
    * 9    20
-   *    15   7
+   * 15   7
    */
 
 
@@ -25,6 +25,7 @@ object No105 {
 
   /**
    * 使用了数组分割，内存占用较高
+   *
    * @return
    */
   def buildTree(preorder: Array[Int], inorder: Array[Int]): TreeNode = {
@@ -48,6 +49,7 @@ object No105 {
 
   /**
    * 传递同一个数组，通过索引分割，内存占用较低
+   *
    * @return
    */
   def build(preorder: Array[Int], preStart: Int, preEnd: Int, inorder: Array[Int], inStart: Int, inEnd: Int): TreeNode = {
