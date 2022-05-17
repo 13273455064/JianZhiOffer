@@ -14,7 +14,7 @@ public class FullArray {
     public static void main(String[] args) {
         int[] arr = new int[]{1, 2, 3};
         LinkedList<Integer> track = new LinkedList<>();
-        backtrack(arr,track);
+        backtrack(arr, track);
         System.out.println(res);
     }
 

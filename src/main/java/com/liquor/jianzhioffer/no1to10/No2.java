@@ -15,8 +15,8 @@ public class No2 {
     /**
      *
      */
-    private static String trans(StringBuffer str){
-        if(str==null){
+    private static String trans(StringBuffer str) {
+        if (str == null) {
             return "";
         }
         int oldlength = str.length();

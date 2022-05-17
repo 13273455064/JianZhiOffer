@@ -16,9 +16,9 @@ object No543 {
   }
 
 
-
   def diameterOfBinaryTree(root: TreeNode): Int = {
     var maxDiameter = 0
+
     def maxDeep(root: TreeNode): Int = {
       Option(root) match {
         case None => 0
@@ -30,10 +30,10 @@ object No543 {
           math.max(leftDeep, rightDeep) + 1
       }
     }
+
     maxDeep(root)
     maxDiameter
   }
-
 
 
 }

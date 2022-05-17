@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 public class SynchronizedDefect {
 
 
-    public synchronized void syncMethod(){
+    public synchronized void syncMethod() {
         try {
             TimeUnit.HOURS.sleep(1);
         } catch (InterruptedException e) {

@@ -29,7 +29,7 @@ object HeapSort {
   }
 
 
-  def buildMaxHeap( a: Array[Int], size: Int): Unit = {
+  def buildMaxHeap(a: Array[Int], size: Int): Unit = {
     val hs = size / 2
     for (i <- 0 to hs) {
       adjustHeap(a, hs - i, size)

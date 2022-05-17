@@ -5,6 +5,7 @@ import com.liquor.thread.pool.impl.ThreadPool;
 
 /**
  * 拒绝策略，抛弃提交的任务
+ *
  * @author zzc
  */
 public class DiscardDenyPolicy implements DenyPolicy {

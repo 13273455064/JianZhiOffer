@@ -2,24 +2,23 @@ package com.liquor.jianzhioffer.no51to60;
 
 /**
  * 构建乘积数组：给定一个数组A[0,1,...,n-1],请构建一个数组B[0,1,...,n-1],其中B中的元素B[i]=A[0]*A[1]*...*A[i-1]*A[i+1]*...*A[n-1]。不能使用除法。
- *
+ * <p>
  * 如果可以使用除法，那这个题应该很简单，就是先计算出A[0]乘到A[n-1]的乘积
  * 然后对于每个B[i],都除以A[i],需要注意除数不能为0
- *
+ * <p>
  * 但是这个题不让用除法，于是只能仔细观察 B[i]=A[0]*A[1]*...*A[i-1]*A[i+1]*...*A[n-1] 这个式子。一开始我还看不懂，还在想这不是跟 A[0]乘到A[n-1] 一样吗
  * 后来我看到它没有A[i],比较显然，可以把 B[i]的值分成两部分，分别是 A[0]*A[1]*...*A[i-1] 和    A[i+1]*...*A[n-1]
  * 对于第一部分，我们可以保存每次乘积之后的值，对于第二部分，只要倒着遍历，然后保存每次乘积之后的值即可
- *
+ * <p>
  * 参考 https://blog.csdn.net/qq_28081081/article/details/80875917  的图，可以发现
  * 对于  B[i]=A[0]*A[1]*...*A[i-1]*A[i+1]*...*A[n-1]  其实就是把  A[i]设置成1，然后通过矩阵的左下角和右上角的三角计算
  * 第一趟遍历，计算的是左下角的，第二趟计算的是右上角的乘积
- *
  *
  * @author T480
  */
 public class No53 {
     public int[] multiply(int[] A) {
-        if (A==null || A.length==0){
+        if (A == null || A.length == 0) {
             return new int[0];
         }
         int n = A.length;
@@ -27,14 +26,14 @@ public class No53 {
         int[] BRight = new int[n];
         B[0] = 1;
         //先把B里面每一个数对应的左半部分算出来
-        for (int i=1;i<n;i++){
-            B[i] = B[i-1] * A[i-1];
+        for (int i = 1; i < n; i++) {
+            B[i] = B[i - 1] * A[i - 1];
         }
         int temp = 1;
         //这里初始下标是  A.length-2  是因为我们第一个要乘的数要是   A[n-1]
-        for (int i= A.length-2;i>=0;i--){
+        for (int i = A.length - 2; i >= 0; i--) {
             //连续计算右上角的值
-            temp *= A[i+1];
+            temp *= A[i + 1];
             //再乘到左下角去，省略了*1的步骤
             B[i] *= temp;
         }

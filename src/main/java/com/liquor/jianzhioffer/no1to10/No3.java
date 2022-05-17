@@ -52,7 +52,7 @@ public class No3 {
         ListNode current = head;
 
         int size = 0;
-        while(current != null) {
+        while (current != null) {
             ListNode temp = current.next;
             current.next = pre;
             pre = current;
@@ -60,7 +60,7 @@ public class No3 {
             size++;
         }
         int[] result = new int[size];
-        for(int i = 0;i<size;i++) {
+        for (int i = 0; i < size; i++) {
             result[i] = pre.val;
             pre = pre.next;
         }

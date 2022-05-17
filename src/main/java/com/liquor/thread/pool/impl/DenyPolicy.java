@@ -2,6 +2,7 @@ package com.liquor.thread.pool.impl;
 
 /**
  * 线程池的拒绝策略
+ *
  * @author zzc
  */
 @FunctionalInterface

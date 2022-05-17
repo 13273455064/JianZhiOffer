@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 public class ThreadJoin {
 
     public static void main(String[] args) throws InterruptedException {
-        List<Thread> threads = IntStream.range(1,3).mapToObj(ThreadJoin::create).collect(Collectors.toList());
+        List<Thread> threads = IntStream.range(1, 3).mapToObj(ThreadJoin::create).collect(Collectors.toList());
         //启动两个线程
         threads.forEach(Thread::start);
 
@@ -20,18 +20,18 @@ public class ThreadJoin {
 
         //main线程输出
         for (int i = 0; i < 10; i++) {
-            System.out.println(Thread.currentThread().getName()+"#"+i);
+            System.out.println(Thread.currentThread().getName() + "#" + i);
         }
 
     }
 
-    private static Thread create(int name){
-        return new Thread(()->{
+    private static Thread create(int name) {
+        return new Thread(() -> {
             for (int i = 0; i < 10; i++) {
-                System.out.println(Thread.currentThread().getName()+"#"+i);
+                System.out.println(Thread.currentThread().getName() + "#" + i);
                 shortSleep();
             }
-        },String.valueOf(name));
+        }, String.valueOf(name));
     }
 
     private static void shortSleep() {

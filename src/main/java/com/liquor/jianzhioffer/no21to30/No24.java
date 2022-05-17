@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.logging.Level;
 
 /**
  * 从上往下打印出二叉树的每个节点，同层节点从左至右打印。

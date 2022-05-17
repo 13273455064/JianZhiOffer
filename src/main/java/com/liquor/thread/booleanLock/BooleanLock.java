@@ -6,6 +6,7 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * 显式锁实现
+ *
  * @author zzc
  */
 public class BooleanLock implements Lock {
@@ -21,9 +22,9 @@ public class BooleanLock implements Lock {
     @Override
     public void lock() throws InterruptedException {
         //同步代码块，锁住当前对象
-        synchronized (this){
+        synchronized (this) {
             //如果锁被某一个线程获得，将该线程加入阻塞队列，同时当前线程释放锁
-            while (lock){
+            while (lock) {
                 blockedList.add(currenThread);
                 this.wait();
             }
@@ -38,37 +39,37 @@ public class BooleanLock implements Lock {
 
     @Override
     public void lock(long mills) throws InterruptedException, TimeoutException {
-            synchronized (this){
-                if (mills<=0){
-                    this.lock();
-                }else {
-                    long remainingMills = mills;
-                    long endMills = System.currentTimeMillis()+remainingMills;
-                    while (lock){
-                        //如果剩余时间小于0，说明超时了，抛出超时异常
-                        if (remainingMills<=0){
-                            throw new TimeoutException("can not get the lock during "+ mills);
-                        }
-                        if (!blockedList.contains(Thread.currentThread())){
-                            blockedList.add(Thread.currentThread());
-                        }
-                        this.wait(remainingMills);
-                        remainingMills = endMills-System.currentTimeMillis();
+        synchronized (this) {
+            if (mills <= 0) {
+                this.lock();
+            } else {
+                long remainingMills = mills;
+                long endMills = System.currentTimeMillis() + remainingMills;
+                while (lock) {
+                    //如果剩余时间小于0，说明超时了，抛出超时异常
+                    if (remainingMills <= 0) {
+                        throw new TimeoutException("can not get the lock during " + mills);
                     }
-                    blockedList.remove(Thread.currentThread());
-                    this.lock = true;
-                    this.currenThread = Thread.currentThread();
+                    if (!blockedList.contains(Thread.currentThread())) {
+                        blockedList.add(Thread.currentThread());
+                    }
+                    this.wait(remainingMills);
+                    remainingMills = endMills - System.currentTimeMillis();
                 }
+                blockedList.remove(Thread.currentThread());
+                this.lock = true;
+                this.currenThread = Thread.currentThread();
             }
+        }
     }
 
     @Override
     public void unlock() {
-        synchronized (this){
+        synchronized (this) {
             //判断当前线程是不是获得锁的那个线程，只有获取锁的线程才能释放锁
-            if (currenThread==Thread.currentThread()){
+            if (currenThread == Thread.currentThread()) {
                 this.lock = false;
-                System.out.println(currenThread.getName()+" 释放了锁");
+                System.out.println(currenThread.getName() + " 释放了锁");
                 //唤醒其他所有线程
                 this.notifyAll();
             }

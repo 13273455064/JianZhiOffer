@@ -21,9 +21,9 @@ object No2 {
   def replace(s: String): String = {
     val builder = new mutable.StringBuilder()
     s.foreach(c => {
-      if (c == ' '){
+      if (c == ' ') {
         builder.append('%').append('2').append('0')
-      }else{
+      } else {
         builder.append(c)
       }
     })

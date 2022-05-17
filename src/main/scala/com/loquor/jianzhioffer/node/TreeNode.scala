@@ -17,9 +17,9 @@ object TreeNode {
   /**
    * [-10,9,20,null,null,15,7]
    *
-   *     -10
-   *   9     20
-   *       15   7
+   * -10
+   * 9     20
+   * 15   7
    */
   def getInstance(): TreeNode = {
     val node_10 = TreeNode(-10)

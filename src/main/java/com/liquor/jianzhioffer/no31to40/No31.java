@@ -12,39 +12,39 @@ import java.util.ArrayList;
  */
 public class No31 {
 
-    public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
+    public ArrayList<Integer> GetLeastNumbers_Solution(int[] input, int k) {
         ArrayList<Integer> list = new ArrayList<Integer>();
-        if (input.length<k || k<=0){
+        if (input.length < k || k <= 0) {
             return list;
         }
 
-        quickSort(input,0,input.length-1);
-        for (int i=0;i<k-1;i++){
+        quickSort(input, 0, input.length - 1);
+        for (int i = 0; i < k - 1; i++) {
             list.add(input[i]);
         }
         return list;
     }
 
-    public static void quickSort(int[] arr,int start,int end){
-        if (start<end){
+    public static void quickSort(int[] arr, int start, int end) {
+        if (start < end) {
             int index = arr[start];
             int left = start;
             int right = end;
 
-            while (left<right){
-                while (left<right && index<=arr[right]){
+            while (left < right) {
+                while (left < right && index <= arr[right]) {
                     right--;
                 }
                 arr[left] = arr[right];
-                while (left<right && index>arr[left]){
+                while (left < right && index > arr[left]) {
                     left++;
                 }
                 arr[right] = arr[left];
             }
             //当左右重合,此时左右对应的坐标即是中间那个数字
             arr[left] = index;
-            quickSort(arr,start,left-1);
-            quickSort(arr,left+1,end);
+            quickSort(arr, start, left - 1);
+            quickSort(arr, left + 1, end);
         }
     }
 

@@ -4,7 +4,7 @@ import com.loquor.jianzhioffer.node.Node
 
 /**
  * <p>
- *  反转链表
+ * 反转链表
  * </p>
  *
  * @author zhengzhicong
@@ -29,7 +29,7 @@ object No3 {
     }
   }
 
-  def reverse( node: Node): Node = {
+  def reverse(node: Node): Node = {
     var pre: Node = null
     var current = node
 

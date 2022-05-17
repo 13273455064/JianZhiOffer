@@ -5,13 +5,14 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * 自定义一个显式锁接口
+ *
  * @author zzc
  */
 public interface Lock {
 
-    void lock()throws InterruptedException;
+    void lock() throws InterruptedException;
 
-    void lock(long mills)throws InterruptedException, TimeoutException;
+    void lock(long mills) throws InterruptedException, TimeoutException;
 
     void unlock();
 

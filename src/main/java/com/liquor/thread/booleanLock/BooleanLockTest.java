@@ -5,19 +5,22 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 测试我的显示锁
+ *
  * @author zzc
  */
 public class BooleanLockTest {
-    /**定义一把锁*/
+    /**
+     * 定义一把锁
+     */
     private BooleanLock lock = new BooleanLock();
 
 
     public void syncMethod() throws InterruptedException {
         lock.lock();
         try {
-            System.out.println(Thread.currentThread().getName()+" 拿到了锁");
+            System.out.println(Thread.currentThread().getName() + " 拿到了锁");
             TimeUnit.MILLISECONDS.sleep(ThreadLocalRandom.current().nextInt(10));
-        }finally {
+        } finally {
             lock.unlock();
         }
     }

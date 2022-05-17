@@ -14,7 +14,7 @@ object InsertSort {
 
     for (i <- 0 until length) {
       for (j <- 0 until i) {
-        if (arr(i) < arr(j)) swap(i,j)
+        if (arr(i) < arr(j)) swap(i, j)
       }
     }
 

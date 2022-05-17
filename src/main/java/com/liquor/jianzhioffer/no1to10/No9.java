@@ -18,17 +18,18 @@ public class No9 {
 
     /**
      * 递归的版本
+     *
      * @param n
      * @return
      */
-    public static int getnum(int n){
-        if(n<=0){
+    public static int getnum(int n) {
+        if (n <= 0) {
             return 0;
         }
-        if(n==1){
+        if (n == 1) {
             return 1;
         }
-        return getnum(n-1)+getnum(n-2);
+        return getnum(n - 1) + getnum(n - 2);
     }
 
     /**
@@ -36,11 +37,11 @@ public class No9 {
      * 思路：递归会造成很多次重复的计算，时间复杂度是O(n的指数)，
      * 这里把每一次计算的值保存下来，从下面一层一层地向上算，随后得到第n代的数，时间复杂度O(n)
      */
-    static int getNum(int n){
-        if(n<=0){
+    static int getNum(int n) {
+        if (n <= 0) {
             return 0;
         }
-        if(n==1){
+        if (n == 1) {
             return 1;
         }
         //这仨值是temp是当前的那一代，n_1和n_2分别是前面那俩代的数字
@@ -48,8 +49,8 @@ public class No9 {
         int n_1 = 1;
         int temp = 1;
 
-        for(int i=2;i<=n;i++){
-            temp = n_1+n_2;
+        for (int i = 2; i <= n; i++) {
+            temp = n_1 + n_2;
             n_2 = n_1;
             n_1 = temp;
         }

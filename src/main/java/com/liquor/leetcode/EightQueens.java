@@ -45,7 +45,7 @@ public class EightQueens {
         //检查右上方是否有皇后互相冲突
         for (int i = row - 1, j = col + 1;
              i >= 0 && j < length; i--, j++) {
-            if (arr[i][j] == 1){
+            if (arr[i][j] == 1) {
                 return false;
             }
         }
@@ -53,7 +53,7 @@ public class EightQueens {
         // 检查左上方是否有皇后互相冲突
         for (int i = row - 1, j = col - 1;
              i >= 0 && j >= 0; i--, j--) {
-            if (arr[i][j] == 1){
+            if (arr[i][j] == 1) {
                 return false;
             }
         }

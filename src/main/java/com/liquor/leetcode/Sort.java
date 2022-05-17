@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class Sort {
 
     public static void main(String[] args) {
-        String[] arr = new String[]{"a", "ab", "a","abc","frg","f","a","ab","ssj","abc"};
+        String[] arr = new String[]{"a", "ab", "a", "abc", "frg", "f", "a", "ab", "ssj", "abc"};
         num(arr);
     }
 

@@ -27,7 +27,7 @@ object No104 {
       case Some(_) =>
         val leftMax = maxDeep(root.left)
         val rightMax = maxDeep(root.right)
-        val res = math.max(leftMax,rightMax) + 1
+        val res = math.max(leftMax, rightMax) + 1
         res
     }
   }

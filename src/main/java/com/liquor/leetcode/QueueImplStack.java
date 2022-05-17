@@ -20,7 +20,6 @@ public class QueueImplStack {
         System.out.println("empty? " + stack.empty());
 
 
-
         System.out.println(stack.pop());
         System.out.println(stack.pop());
         System.out.println(stack.pop());
