@@ -1,6 +1,6 @@
-package com.loquor.jianzhioffer
+package com.loquor.leetcode
 
-import com.loquor.jianzhioffer.node.TreeNode
+import com.loquor.common.node.TreeNode
 
 /**
  * 二叉树中和最大的路径

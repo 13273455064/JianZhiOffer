@@ -1,6 +1,6 @@
-package com.loquor.jianzhioffer.no1to10
+package com.loquor.jianzhioffer
 
-import com.loquor.jianzhioffer.node.Node
+import com.loquor.common.node.Node
 
 /**
  * <p>

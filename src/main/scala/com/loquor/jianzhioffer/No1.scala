@@ -1,5 +1,4 @@
-package com.loquor.jianzhioffer.no1to10
-
+package com.loquor.jianzhioffer
 
 /**
  * <p>

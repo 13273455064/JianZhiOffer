@@ -1,4 +1,4 @@
-package com.loquor.jianzhioffer.node
+package com.loquor.common.node
 
 /**
  * <p>
