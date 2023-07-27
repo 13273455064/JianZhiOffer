@@ -11,19 +11,19 @@ object No124 {
   def main(args: Array[String]): Unit = {
     var maxP: Int = Int.MinValue
 
-    def maxPathSum(root: TreeNode): Int = {
-      Option.apply(root) match {
+    def maxPathSum(node: Option[TreeNode]): Int = {
+      node match {
         case None => 0
-        case Some(_) =>
-          val leftMax = math.max(maxPathSum(root.left), 0)
-          val rightMax = math.max(maxPathSum(root.right), 0)
-          maxP = math.max(leftMax + rightMax + root.value, maxP)
-          math.max(leftMax, rightMax) + root.value
+        case Some(currentNode) =>
+          val leftMax = math.max(maxPathSum(currentNode.left), 0)
+          val rightMax = math.max(maxPathSum(currentNode.right), 0)
+          maxP = math.max(leftMax + rightMax + currentNode.value, maxP)
+          math.max(leftMax, rightMax) + currentNode.value
       }
     }
 
     val root = TreeNode.getInstance()
-    maxPathSum(root)
+    maxPathSum(Some(root))
     println(maxP)
 
   }

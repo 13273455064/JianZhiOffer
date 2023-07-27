@@ -9,40 +9,40 @@ object No104 {
 
   var res = 0
   //当前递归到的节点深度
-  var deep = 0
+  private var currentDeep = 0
 
   def main(args: Array[String]): Unit = {
 
     val root = TreeNode.getInstance()
-    travers(root)
+    travers(Some(root))
     println(res)
 
-    println(maxDeep(root))
+    println(maxDeep(Some(root)))
 
   }
 
-  def maxDeep(root: TreeNode): Int = {
-    Option(root) match {
+  def maxDeep(node: Option[TreeNode]): Int = {
+    node match {
       case None => 0
-      case Some(_) =>
-        val leftMax = maxDeep(root.left)
-        val rightMax = maxDeep(root.right)
+      case Some(currentNode) =>
+        val leftMax = maxDeep(currentNode.left)
+        val rightMax = maxDeep(currentNode.right)
         val res = math.max(leftMax, rightMax) + 1
         res
     }
   }
 
-  def travers(root: TreeNode): Unit = {
-    Option(root) match {
+  private def travers(node: Option[TreeNode]): Unit = {
+    node match {
       case None =>
-      case Some(_) =>
-        deep = deep + 1
-        if (root.left == null || root.right == null) {
-          res = math.max(res, deep)
+      case Some(currentNode) =>
+        currentDeep = currentDeep + 1
+        if (currentNode.left.isEmpty || currentNode.right.isEmpty) {
+          res = math.max(res, currentDeep)
         }
-        travers(root.left)
-        travers(root.right)
-        deep = deep - 1
+        travers(currentNode.left)
+        travers(currentNode.right)
+        currentDeep = currentDeep - 1
     }
   }
 

@@ -11,20 +11,20 @@ object No543 {
 
   def main(args: Array[String]): Unit = {
     val root = TreeNode.getInstance()
-    println(diameterOfBinaryTree(root))
+    println(diameterOfBinaryTree(Some(root)))
 
   }
 
 
-  def diameterOfBinaryTree(root: TreeNode): Int = {
+  private def diameterOfBinaryTree(root: Option[TreeNode]): Int = {
     var maxDiameter = 0
 
-    def maxDeep(root: TreeNode): Int = {
-      Option(root) match {
+    def maxDeep(node: Option[TreeNode]): Int = {
+      node match {
         case None => 0
-        case Some(_) =>
-          val leftDeep = maxDeep(root.left)
-          val rightDeep = maxDeep(root.right)
+        case Some(currentNode) =>
+          val leftDeep = maxDeep(currentNode.left)
+          val rightDeep = maxDeep(currentNode.right)
           val thisDiameter = leftDeep + rightDeep
           maxDiameter = math.max(maxDiameter, thisDiameter)
           math.max(leftDeep, rightDeep) + 1

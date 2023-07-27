@@ -8,7 +8,7 @@ package com.loquor.common.node
  * @author zhengzhicong
  * @since 2021/8/8 3:48 下午
  */
-case class TreeNode(value: Int, var left: TreeNode = null, var right: TreeNode = null) {
+case class TreeNode(value: Int, left: Option[TreeNode] = None, right: Option[TreeNode] = None) {
 
 }
 
@@ -28,10 +28,6 @@ object TreeNode {
     val node15 = TreeNode(15)
     val node7 = TreeNode(7)
 
-    node_10.left = node9
-    node_10.right = node20
-    node20.left = node15
-    node20.right = node7
-    node_10
+    node_10.copy(left = Some(node9), right = Some(node20.copy(left = Some(node15), right = Some(node7))))
   }
 }
