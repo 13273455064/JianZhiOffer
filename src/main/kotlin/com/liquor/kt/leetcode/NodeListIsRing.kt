@@ -4,6 +4,7 @@ import com.liquor.kt.common.Node
 
 /**
  * 判断链表是否有环
+ * 使用快慢指针
  */
 object NodeListIsRing {
 
