@@ -1,4 +1,4 @@
-package com.liquor.leetcode;
+package com.liquor.leetcode.nodelist;
 
 
 import com.liquor.common.Node;

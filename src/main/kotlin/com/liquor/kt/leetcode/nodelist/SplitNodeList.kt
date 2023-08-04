@@ -1,4 +1,4 @@
-package com.liquor.kt.leetcode
+package com.liquor.kt.leetcode.nodelist
 
 import com.liquor.kt.common.Node
 import kotlin.random.Random
