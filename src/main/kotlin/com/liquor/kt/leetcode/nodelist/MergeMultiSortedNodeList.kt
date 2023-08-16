@@ -5,6 +5,8 @@ import java.util.*
 
 /**
  * 合并多个有序链表
+ *
+ * https://leetcode.cn/problems/merge-k-sorted-lists/
  */
 object MergeMultiSortedNodeList {
 
@@ -13,21 +15,21 @@ object MergeMultiSortedNodeList {
         // 生成3个有序链表
         val head1 = Node(0)
         var temp = head1
-        for (i in 0 .. 3) {
+        for (i in 0..3) {
             temp.next = Node(i)
             temp = temp.next!!
         }
 
-        val head2  = Node(0)
+        val head2 = Node(0)
         temp = head2
-        for (i in 4 .. 6) {
+        for (i in 4..6) {
             temp.next = Node(i)
             temp = temp.next!!
         }
 
         val head3 = Node(0)
         temp = head3
-        for (i in 7 .. 9) {
+        for (i in 7..9) {
             temp.next = Node(i)
             temp = temp.next!!
         }

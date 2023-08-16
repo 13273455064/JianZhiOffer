@@ -4,6 +4,7 @@ import com.liquor.kt.common.Node
 
 /**
  * 找到链表中的倒数第k个节点
+ * https://leetcode.cn/problems/remove-nth-node-from-end-of-list/
  *
  * 使用快慢指针，快指针先走k步，然后快慢指针一起走，当快指针走到头时，慢指针就是倒数第k个节点
  */

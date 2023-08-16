@@ -4,7 +4,7 @@ package com.liquor.leetcode.nodelist;
 import com.liquor.common.Node;
 
 /**
- * 合并两个有序列表
+ * 合并两个有序链表
  */
 public class MergeSortedList {
 
@@ -31,28 +31,28 @@ public class MergeSortedList {
         }
 
         Node dump = new Node(-1);
-        Node head = dump;
+        Node node = dump;
 
 
-        while (l1.next != null && l2.next != null) {
+        while (l1 != null && l2 != null) {
             if (l1.val < l2.val) {
-                dump.next = l1;
+                node.next = l1;
                 l1 = l1.next;
             } else {
-                dump.next = l2;
+                node.next = l2;
                 l2 = l2.next;
             }
-            dump = dump.next;
+            node = node.next;
         }
 
-        if (l1.next != null) {
-            dump.next = l1;
+        if (l1 != null) {
+            node.next = l1;
         }
 
-        if (l2.next != null) {
-            dump.next = l2;
+        if (l2 != null) {
+            node.next = l2;
         }
 
-        return head.next;
+        return dump.next;
     }
 }
