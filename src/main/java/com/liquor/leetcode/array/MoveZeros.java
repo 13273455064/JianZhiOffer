@@ -9,8 +9,8 @@ public class MoveZeros {
 
     public static void main(String[] args) {
         int[] nums = {0, 0, 1, 0, 1, 2, 2, 3, 3, 4};
-        //remove(nums, 0);
-        move(nums);
+        remove(nums, 0);
+        //move(nums);
         for (int num : nums) {
             System.out.println(num);
         }
@@ -18,7 +18,7 @@ public class MoveZeros {
 
     /**
      * 使用左右指针移动元素的思路
-     *  但是这种方法无法保持非 0 元素的顺序
+     * 但是这种方法无法保持非 0 元素的顺序
      */
     static void move(int[] nums) {
         if (nums.length == 0) {
