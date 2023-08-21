@@ -46,7 +46,7 @@ public class intersectNodeList {
         while (p1 != p2) {
             // p1 先走到头，就把 p1 指向 headB, p2 同理
             // 也就是说，p1 和 p2 都走了两遍，就一定会相遇
-            if (p1 ==null) {
+            if (p1 == null) {
                 p1 = headB;
             } else {
                 p1 = p1.next;

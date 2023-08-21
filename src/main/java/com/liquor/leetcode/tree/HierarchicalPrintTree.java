@@ -1,20 +1,18 @@
-package com.liquor.leetcode;
+package com.liquor.leetcode.tree;
 
+import com.liquor.common.TreeNode;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 
-public class Tree {
+/**
+ * 层次打印二叉树
+ */
+public class HierarchicalPrintTree {
 
-
-    private class TreeNode {
-        int val = 0;
-        TreeNode left = null;
-        TreeNode right = null;
-    }
-
-    public static void main(String[] args) {
-
-    }
+    public final List<Integer> list = new ArrayList<>();
 
     public void print(TreeNode treeNode) {
 
@@ -26,7 +24,7 @@ public class Tree {
         //O(N)
         while (!queue.isEmpty()) {
             final TreeNode poll = queue.poll();
-            System.out.println(poll.val);
+            list.add(poll.val);
             if (Objects.nonNull(poll.left)) {
                 queue.add(poll.left);
             }

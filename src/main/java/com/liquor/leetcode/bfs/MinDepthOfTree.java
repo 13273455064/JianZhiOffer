@@ -1,15 +1,14 @@
 package com.liquor.leetcode.bfs;
 
-import java.util.LinkedList;
-
 import com.liquor.common.TreeNode;
 
+import java.util.LinkedList;
 import java.util.Queue;
 
 /**
  * 二叉树的最小深度
  * https://leetcode.cn/problems/minimum-depth-of-binary-tree/
- * 
+ * <p>
  * 使用BFS, 二叉树的层次遍历框架
  */
 public class MinDepthOfTree {
@@ -32,7 +31,7 @@ public class MinDepthOfTree {
 
     /**
      * 二叉树的最小深度
-     * 
+     *
      * @param root
      * @return
      */
