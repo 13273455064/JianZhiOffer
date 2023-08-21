@@ -22,7 +22,6 @@ public class TrappingRainWater {
         var len = height.length;
 
         var max = 0;
-        Integer.parseInt("1");
         var leftMax = new int[len];
         var rightMax = new int[len];
         leftMax[0] = height[0];
