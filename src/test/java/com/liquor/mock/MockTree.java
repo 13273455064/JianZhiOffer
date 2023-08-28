@@ -25,6 +25,11 @@ public class MockTree {
         return root;
     };
 
+    /**
+     * 3
+     * 9      20
+     * 15   7
+     */
     public static Supplier<TreeNode> mockCommonTree = () -> {
         TreeNode root = new TreeNode(3);
         TreeNode left = new TreeNode(9);
