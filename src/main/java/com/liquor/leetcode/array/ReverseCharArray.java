@@ -11,7 +11,7 @@ public class ReverseCharArray {
 
         reverse(arr);
 
-        for (char c: arr) {
+        for (char c : arr) {
             System.out.println(c);
         }
     }
@@ -24,7 +24,7 @@ public class ReverseCharArray {
         int right = array.length - 1;
 
         while (left < right) {
-            char swap = array[right];
+            var swap = array[right];
             array[right] = array[left];
             array[left] = swap;
             left++;
